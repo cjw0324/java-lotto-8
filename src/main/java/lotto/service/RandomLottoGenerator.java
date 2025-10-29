@@ -4,7 +4,6 @@ package lotto.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import lotto.Lotto;
-import lotto.domain.User;
 
 public class RandomLottoGenerator implements LottoGenerator {
     @Override

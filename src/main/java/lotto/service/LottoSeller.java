@@ -1,5 +1,6 @@
 package lotto.service;
 
+import static lotto.domain.policy.LottoPolicy.LOTTO_PRICE;
 import static lotto.exception.ErrorMessage.NOT_VALID_MONEY;
 
 import java.util.ArrayList;
@@ -7,7 +8,6 @@ import java.util.List;
 import lotto.Lotto;
 
 public class LottoSeller {
-    static final int LOTTO_PRICE = 1_000;
     private final LottoGenerator generator;
 
     public LottoSeller(LottoGenerator generator) {

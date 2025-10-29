@@ -21,4 +21,6 @@ public class Input {
         String rawNums = Console.readLine();
         return inputParser.parseNums(rawNums);
     }
+
+
 }
