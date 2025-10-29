@@ -1,6 +1,6 @@
 package lotto.service;
 
-import static lotto.exception.Exception.NOT_VALID_MONEY;
+import static lotto.exception.ErrorMessage.NOT_VALID_MONEY;
 
 import java.util.ArrayList;
 import java.util.List;

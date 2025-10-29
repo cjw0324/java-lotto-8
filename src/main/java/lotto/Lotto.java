@@ -1,10 +1,9 @@
 package lotto;
 
-import static lotto.exception.Exception.NOT_VALID_LOTTO_DUPLICATED;
-import static lotto.exception.Exception.NOT_VALID_LOTTO_MORE_THAN_SIX;
-import static lotto.exception.Exception.NOT_VALID_LOTTO_OUT_OF_RANGE;
+import static lotto.exception.ErrorMessage.NOT_VALID_LOTTO_DUPLICATED;
+import static lotto.exception.ErrorMessage.NOT_VALID_LOTTO_MORE_THAN_SIX;
+import static lotto.exception.ErrorMessage.NOT_VALID_LOTTO_OUT_OF_RANGE;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;

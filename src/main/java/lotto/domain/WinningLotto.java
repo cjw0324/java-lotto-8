@@ -1,6 +1,6 @@
 package lotto.domain;
 
-import static lotto.exception.Exception.NOT_VALID_LOTTO_CONTAIN_BONUS;
+import static lotto.exception.ErrorMessage.NOT_VALID_LOTTO_CONTAIN_BONUS;
 
 import java.util.List;
 import lotto.Lotto;
