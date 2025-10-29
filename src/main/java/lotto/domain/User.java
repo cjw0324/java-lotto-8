@@ -3,6 +3,7 @@ package lotto.domain;
 import java.util.ArrayList;
 import java.util.List;
 import lotto.Lotto;
+import lotto.service.LottoSeller;
 
 public class User {
     private final List<Lotto> lottoList;
@@ -15,6 +16,10 @@ public class User {
         this.lottoList = new ArrayList<>();
     }
 
+    public void buy(LottoSeller seller) {
+        lottoList.addAll(seller.selling(purchaseAmount));
+    }
+
     public void addLotto(Lotto lotto) {
         this.lottoList.add(lotto);
     }
@@ -24,6 +29,7 @@ public class User {
     }
 
     public void setPurchaseAmount(int amount) {
+
         this.purchaseAmount = amount;
     }
 
