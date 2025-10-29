@@ -7,8 +7,8 @@ import lotto.Lotto;
 import lotto.domain.WinningLotto;
 
 public class LottoScoreCalc {
-
     private final WinningLotto winningLotto;
+
     public LottoScoreCalc(WinningLotto winningLotto) {
         this.winningLotto = winningLotto;
     }
@@ -23,7 +23,7 @@ public class LottoScoreCalc {
         Map<Rank, Long> result = new HashMap<>();
         for (Lotto lotto : lottos) {
             Rank rank = calculate(lotto);
-            result.put(rank, result.getOrDefault(rank, 0) + 1);
+            result.put(rank, result.getOrDefault(rank, 0L) + 1);
         }
         return result;
     }
