@@ -1,4 +1,7 @@
 package lotto.service;
 
-public class LottoGenerator {
+import lotto.Lotto;
+
+public interface LottoGenerator {
+    Lotto generate();
 }

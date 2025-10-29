@@ -8,8 +8,9 @@ import lotto.Lotto;
 public class WinningLotto{
     private final Lotto winningLotto;
     private final int bonus;
-    public WinningLotto(Lotto lotto, int bonus) {
-        this.winningLotto = lotto;
+    public WinningLotto(List<Integer> numbers, int bonus) {
+        this.winningLotto = new Lotto(numbers);
+        validate(winningLotto, bonus);
         this.bonus = bonus;
     }
 
@@ -20,6 +21,7 @@ public class WinningLotto{
         }
     }
 
+    //helper method
     public int countMatch(Lotto userLotto) {
         int match = 0;
         for (int userSelect : userLotto.getNumbers()) {
@@ -30,6 +32,7 @@ public class WinningLotto{
         return match;
     }
 
+    //helper method
     public boolean hasBonus(Lotto userLotto) {
         return userLotto.getNumbers().contains(bonus);
     }
