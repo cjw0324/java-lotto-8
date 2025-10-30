@@ -8,6 +8,7 @@ public enum ErrorMessage {
     NOT_VALID_MONEY("로또 구입 금액은 1,000원 단위여야 합니다."),
     NOT_VALID_INPUT_BLANK("입력에 공백은 허용되지 않습니다."),
     NOT_VALID_STRING("정수 입력만 가능합니다.");
+
     private final String message;
 
     ErrorMessage(String message) {

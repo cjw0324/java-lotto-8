@@ -7,8 +7,7 @@ import static lotto.domain.constant.LottoConstant.LOTTO_PRICE;
 import static lotto.exception.ErrorMessage.NOT_VALID_LOTTO_OUT_OF_RANGE;
 import static lotto.exception.ErrorMessage.NOT_VALID_MONEY;
 
-public class LottoValidate implements Validate{
-
+public class LottoValidate implements Validate {
     @Override
     public int availableLottoNum(int num) {
         if (num < LOTTO_MIN_NUMBER || num > LOTTO_MAX_NUMBER) {
