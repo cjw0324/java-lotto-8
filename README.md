@@ -162,6 +162,46 @@
 ### 디렉터리 구조
 
 ~~~
-
+lotto
+ ├── Application
+ ├── Lotto
+ │
+ ├── config
+ │    └── ComponentManager
+ │
+ ├── controller
+ │    └── LottoController
+ │
+ ├── domain
+ │    ├── User
+ │    ├── WinningLotto
+ │    ├── Rank
+ │    └── constant
+ │         └── LottoConstant
+ │
+ ├── domain.factory
+ │    ├── UserFactory
+ │    └── WinningLottoFactory
+ │
+ ├── exception
+ │    └── ErrorMessage
+ │
+ ├── io
+ │    ├── Input
+ │    ├── Output
+ │    ├── parser
+ │    │    └── InputParser
+ │    └── validate
+ │         ├── Validate
+ │         └── LottoValidate
+ │
+ ├── service
+ │    ├── LottoGenerator
+ │    ├── RandomLottoGenerator
+ │    ├── LottoSeller
+ │    └── LottoScoreCalc
+ │
+ └── util
+      └── RetryEmulator
 ~~~
 

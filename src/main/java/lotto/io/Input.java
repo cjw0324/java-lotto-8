@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import lotto.Lotto;
 import lotto.io.parser.InputParser;
-import lotto.validate.Validate;
+import lotto.io.validate.Validate;
 
 public class Input {
 

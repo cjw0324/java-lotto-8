@@ -1,4 +1,4 @@
-package lotto.factory;
+package lotto.domain.factory;
 
 import java.util.function.Supplier;
 import lotto.Lotto;

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import lotto.Lotto;
+import lotto.domain.Rank;
 import lotto.domain.WinningLotto;
 
 public class LottoScoreCalc {

@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import lotto.Lotto;
 import lotto.service.LottoSeller;
-import lotto.service.Rank;
 
 public class User {
     private final List<Lotto> lottoList;

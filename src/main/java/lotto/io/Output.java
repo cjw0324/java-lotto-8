@@ -3,7 +3,7 @@ package lotto.io;
 import java.util.List;
 import java.util.Map;
 import lotto.Lotto;
-import lotto.service.Rank;
+import lotto.domain.Rank;
 
 public class Output {
     private static final String PRICE_INPUT_PROMPT = "구입금액을 입력해 주세요.";

@@ -1,4 +1,4 @@
-package lotto.factory;
+package lotto.domain.factory;
 
 import lotto.domain.User;
 import lotto.io.Input;

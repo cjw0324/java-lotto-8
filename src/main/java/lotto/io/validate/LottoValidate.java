@@ -1,13 +1,11 @@
-package lotto.validate;
+package lotto.io.validate;
 
 
-import static lotto.domain.policy.LottoPolicy.LOTTO_MAX_NUMBER;
-import static lotto.domain.policy.LottoPolicy.LOTTO_MIN_NUMBER;
-import static lotto.domain.policy.LottoPolicy.LOTTO_PRICE;
+import static lotto.domain.constant.LottoConstant.LOTTO_MAX_NUMBER;
+import static lotto.domain.constant.LottoConstant.LOTTO_MIN_NUMBER;
+import static lotto.domain.constant.LottoConstant.LOTTO_PRICE;
 import static lotto.exception.ErrorMessage.NOT_VALID_LOTTO_OUT_OF_RANGE;
 import static lotto.exception.ErrorMessage.NOT_VALID_MONEY;
-
-import lotto.Lotto;
 
 public class LottoValidate implements Validate{
 

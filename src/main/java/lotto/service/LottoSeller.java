@@ -1,6 +1,6 @@
 package lotto.service;
 
-import static lotto.domain.policy.LottoPolicy.LOTTO_PRICE;
+import static lotto.domain.constant.LottoConstant.LOTTO_PRICE;
 import static lotto.exception.ErrorMessage.NOT_VALID_MONEY;
 
 import java.util.ArrayList;

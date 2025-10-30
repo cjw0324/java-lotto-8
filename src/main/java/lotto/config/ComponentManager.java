@@ -1,17 +1,16 @@
 package lotto.config;
 
 import lotto.controller.LottoController;
-import lotto.domain.WinningLotto;
-import lotto.factory.UserFactory;
-import lotto.factory.WinningLottoFactory;
+import lotto.domain.factory.UserFactory;
+import lotto.domain.factory.WinningLottoFactory;
 import lotto.io.Input;
 import lotto.io.Output;
 import lotto.service.LottoGenerator;
 import lotto.service.LottoSeller;
 import lotto.service.RandomLottoGenerator;
 import lotto.util.RetryEmulator;
-import lotto.validate.LottoValidate;
-import lotto.validate.Validate;
+import lotto.io.validate.LottoValidate;
+import lotto.io.validate.Validate;
 
 public class ComponentManager {
     private static final ComponentManager COMPONENT_MANAGER = new ComponentManager();

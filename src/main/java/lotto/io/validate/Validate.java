@@ -1,4 +1,4 @@
-package lotto.validate;
+package lotto.io.validate;
 
 import lotto.Lotto;
 

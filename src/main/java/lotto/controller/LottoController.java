@@ -3,11 +3,11 @@ package lotto.controller;
 import java.util.Map;
 import lotto.domain.User;
 import lotto.domain.WinningLotto;
-import lotto.factory.UserFactory;
-import lotto.factory.WinningLottoFactory;
+import lotto.domain.factory.UserFactory;
+import lotto.domain.factory.WinningLottoFactory;
 import lotto.io.Output;
 import lotto.service.LottoScoreCalc;
-import lotto.service.Rank;
+import lotto.domain.Rank;
 
 public class LottoController {
     private final WinningLottoFactory winningLottoFactory;
