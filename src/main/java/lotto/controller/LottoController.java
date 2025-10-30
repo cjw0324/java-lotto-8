@@ -2,6 +2,7 @@ package lotto.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 import lotto.Lotto;
 import lotto.domain.User;
 import lotto.domain.WinningLotto;
@@ -26,34 +27,39 @@ public class LottoController {
     }
 
     public void run() {
-        int purchaseAmount = input.readPrice();
-        validate.availablePrice(purchaseAmount);
-
         User user = new User();
-        user.setPurchaseAmount(purchaseAmount);
+        output.printAskPrice();
+        user.setPurchaseAmount(retryUntilValid(input::readPrice));
         user.buy(lottoSeller);
 
-        List<Integer> winningNumbers = input.readLottoNums();
-        for (int number : winningNumbers) {
-            validate.availableLottoNum(number);
-        }
+        output.printAskWinningLotto();
+        Lotto lotto = retryUntilValid(input::readLottoNums);
 
-        int bonusNumber = input.readPrice();
-        validate.availableLottoNum(bonusNumber);
+        output.printAskBonus();
+        WinningLotto winningLotto = retryUntilValid(() -> {
+            return new WinningLotto(lotto, input.readBonus());
+        });
 
-        // 5️⃣ 당첨 로또 생성
-        WinningLotto winningLotto = new WinningLotto(new Lotto(winningNumbers), bonusNumber);
-
-        // 6️⃣ 결과 계산
         LottoScoreCalc scoreCalc = new LottoScoreCalc(winningLotto);
         Map<Rank, Long> result = scoreCalc.getResult(user.getLottoList());
 
-        // 7️⃣ 수익률 계산 및 출력
         int totalEarnings = (int) result.entrySet().stream()
                 .mapToLong(entry -> entry.getKey().getPrize() * entry.getValue())
                 .sum();
         user.setTotalEarnings(totalEarnings);
         user.setYield();
+    }
+
+
+    private <T> T retryUntilValid(Supplier<T> inputSupplier) {
+        while (true) {
+            try {
+                return inputSupplier.get();
+            } catch (IllegalArgumentException e) {
+                output.print(e.getMessage());
+                output.printRetry();
+            }
+        }
     }
 
 }

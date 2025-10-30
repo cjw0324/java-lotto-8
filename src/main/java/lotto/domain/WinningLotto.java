@@ -8,6 +8,7 @@ import lotto.Lotto;
 public class WinningLotto{
     private final Lotto winningLotto;
     private final int bonus;
+
     public WinningLotto(Lotto lotto, int bonus) {
         this.winningLotto = lotto;
         validate(winningLotto, bonus);

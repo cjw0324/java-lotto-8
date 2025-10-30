@@ -7,6 +7,8 @@ import static lotto.domain.policy.LottoPolicy.LOTTO_PRICE;
 import static lotto.exception.ErrorMessage.NOT_VALID_LOTTO_OUT_OF_RANGE;
 import static lotto.exception.ErrorMessage.NOT_VALID_MONEY;
 
+import lotto.Lotto;
+
 public class LottoValidate implements Validate{
 
     @Override
