@@ -1,7 +1,9 @@
 package lotto.io;
 
 import java.util.List;
+import java.util.Map;
 import lotto.Lotto;
+import lotto.service.Rank;
 
 public class Output {
     private static final String PRICE_INPUT_PROMPT = "구입금액을 입력해 주세요.";
@@ -21,7 +23,7 @@ public class Output {
     public void printBuyingTickets(List<Lotto> lottoList) {
         System.out.println(lottoList.size() + TICKETS_OUTPUT_PROMPT);
         for (Lotto lotto : lottoList) {
-            System.out.println(lotto);
+            System.out.println(lotto.getNumbers());
         }
     }
 
@@ -33,8 +35,18 @@ public class Output {
         System.out.println(BONUS_INPUT_PROMPT);
     }
 
-    public void printSummary() {
+    public void printSummary(Map<Rank, Long> result, double yield) {
         System.out.println(SUMMARY_PROMPT);
+        for (Rank rank : Rank.values()) {
+            if (rank.getPrice() > 0) {
+                System.out.printf("%d개 일치 (%s원)%s - %d개%n",
+                        rank.getMatchCount(),
+                        String.format("%,d", rank.getPrice()),
+                        rank.hasBonus() ? ", 보너스 볼 일치" : "",
+                        result.getOrDefault(rank, 0L));
+            }
+        }
+        System.out.printf("총 수익률은 %.1f%%입니다.%n", yield);
     }
 
     public void printRetry() {

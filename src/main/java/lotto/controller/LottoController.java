@@ -32,6 +32,8 @@ public class LottoController {
         user.setPurchaseAmount(retryUntilValid(input::readPrice));
         user.buy(lottoSeller);
 
+        output.printBuyingTickets(user.getLottoList());
+
         output.printAskWinningLotto();
         Lotto lotto = retryUntilValid(input::readLottoNums);
 
@@ -43,11 +45,12 @@ public class LottoController {
         LottoScoreCalc scoreCalc = new LottoScoreCalc(winningLotto);
         Map<Rank, Long> result = scoreCalc.getResult(user.getLottoList());
 
-        int totalEarnings = (int) result.entrySet().stream()
-                .mapToLong(entry -> entry.getKey().getPrize() * entry.getValue())
+        long totalEarnings = result.entrySet().stream()
+                .mapToLong(entry -> entry.getKey().getPrice() * entry.getValue())
                 .sum();
         user.setTotalEarnings(totalEarnings);
         user.setYield();
+        output.printSummary(result, user.getYield());
     }
 
 

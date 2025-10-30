@@ -10,12 +10,12 @@ public enum Rank {
 
     private final int matchCount;
     private final boolean containBonus;
-    private final int prize;
+    private final int price;
 
     Rank(int matchCount, boolean containBonus, int prize) {
         this.matchCount = matchCount;
         this.containBonus = containBonus;
-        this.prize = prize;
+        this.price = prize;
     }
 
     public static Rank getRank(int matchCount, boolean hasBonus) {
@@ -27,7 +27,15 @@ public enum Rank {
         return NONE;
     }
 
-    public int getPrize() {
-        return prize;
+    public int getMatchCount() {
+        return matchCount;
+    }
+
+    public boolean hasBonus() {
+        return containBonus;
+    }
+
+    public int getPrice() {
+        return price;
     }
 }

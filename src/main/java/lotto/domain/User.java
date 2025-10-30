@@ -7,8 +7,8 @@ import lotto.service.LottoSeller;
 
 public class User {
     private final List<Lotto> lottoList;
-    private int purchaseAmount;
-    private int totalEarnings;
+    private long purchaseAmount;
+    private long totalEarnings;
     private double yield;
 
 
@@ -33,15 +33,15 @@ public class User {
         this.purchaseAmount = amount;
     }
 
-    public void setTotalEarnings(int earnings) {
+    public void setTotalEarnings(long earnings) {
         this.totalEarnings = earnings;
     }
 
-    public int getPurchaseAmount() {
+    public long getPurchaseAmount() {
         return purchaseAmount;
     }
 
-    public int getTotalEarnings() {
+    public long getTotalEarnings() {
         return totalEarnings;
     }
 

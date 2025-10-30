@@ -17,7 +17,7 @@ public class ComponentManager {
         LottoGenerator lottoGenerator = new RandomLottoGenerator();
         Validate validate = new LottoValidate();
         LottoSeller lottoSeller = new LottoSeller(lottoGenerator);
-        Input input = new Input();
+        Input input = new Input(validate);
         Output output = new Output();
 
         lottoController = new LottoController(

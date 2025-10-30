@@ -14,7 +14,7 @@ public class LottoSeller {
         this.generator = generator;
     }
 
-    public List<Lotto> selling(int money) {
+    public List<Lotto> selling(long money) {
         validatePurchaseAmount(money);
         List<Lotto> lottos = new ArrayList<>();
         for (int i = 0; i < money / LOTTO_PRICE; i++) {
@@ -23,7 +23,7 @@ public class LottoSeller {
         return lottos;
     }
 
-    private void validatePurchaseAmount(int money) {
+    private void validatePurchaseAmount(long money) {
         if (money < LOTTO_PRICE || money % LOTTO_PRICE != 0) {
             throw new IllegalArgumentException(NOT_VALID_MONEY.print());
         }
