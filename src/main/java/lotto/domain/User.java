@@ -21,10 +21,6 @@ public class User {
         lottoList.addAll(seller.selling(this.purchaseAmount));
     }
 
-    public void addLotto(Lotto lotto) {
-        this.lottoList.add(lotto);
-    }
-
     public List<Lotto> getLottoList() {
         return new ArrayList<>(this.lottoList);
     }
@@ -33,19 +29,12 @@ public class User {
         this.purchaseAmount = amount;
     }
 
-    public void setTotalEarnings(long earnings) {
-        this.totalEarnings = earnings;
-    }
 
     public long getPurchaseAmount() {
         return purchaseAmount;
     }
 
-    public long getTotalEarnings() {
-        return totalEarnings;
-    }
-
-    public void setYield() {
+    private void setYield() {
         this.yield = Math.round(((double) totalEarnings / (double) purchaseAmount) * 1000) / 10.0;
     }
 
@@ -58,6 +47,6 @@ public class User {
                 .mapToLong(entry -> entry.getKey().getPrice() * entry.getValue())
                 .sum();
 
-        this.yield = Math.round(((double) totalEarnings / purchaseAmount) * 1000) / 10.0;
+        setYield();
     }
 }

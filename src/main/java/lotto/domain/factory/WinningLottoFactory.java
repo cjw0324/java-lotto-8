@@ -1,6 +1,5 @@
 package lotto.domain.factory;
 
-import java.util.function.Supplier;
 import lotto.Lotto;
 import lotto.domain.WinningLotto;
 import lotto.io.Input;

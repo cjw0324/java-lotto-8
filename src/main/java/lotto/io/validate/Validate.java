@@ -1,7 +1,5 @@
 package lotto.io.validate;
 
-import lotto.Lotto;
-
 public interface Validate {
     int availableLottoNum(int num);
 
