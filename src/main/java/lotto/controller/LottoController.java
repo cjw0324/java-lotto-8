@@ -6,6 +6,8 @@ import java.util.function.Supplier;
 import lotto.Lotto;
 import lotto.domain.User;
 import lotto.domain.WinningLotto;
+import lotto.factory.UserFactory;
+import lotto.factory.WinningLottoFactory;
 import lotto.io.Input;
 import lotto.io.Output;
 import lotto.service.LottoScoreCalc;
@@ -14,25 +16,18 @@ import lotto.service.Rank;
 import lotto.validate.Validate;
 
 public class LottoController {
-    private final LottoSeller lottoSeller;
-    private final Validate validate;
-    private final Input input;
+    private final WinningLottoFactory winningLottoFactory;
+    private final UserFactory userFactory;
     private final Output output;
 
-    public LottoController(LottoSeller lottoSeller, Validate validate, Input input, Output output) {
-        this.lottoSeller = lottoSeller;
-        this.validate = validate;
-        this.input = input;
+    public LottoController(WinningLottoFactory winningLottoFactory, UserFactory userFactory, Output output) {
+        this.winningLottoFactory = winningLottoFactory;
+        this.userFactory = userFactory;
         this.output = output;
     }
 
     public void run() {
-        User user = new User();
-        output.printAskPrice();
-        user.setPurchaseAmount(retryUntilValid(input::readPrice));
-        user.buy(lottoSeller);
-
-        output.printBuyingTickets(user.getLottoList());
+        User user = userFactory.createUser();
 
         output.printAskWinningLotto();
         Lotto lotto = retryUntilValid(input::readLottoNums);
