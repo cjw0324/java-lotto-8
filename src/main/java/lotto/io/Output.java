@@ -21,31 +21,58 @@ public class Output {
     }
 
     public void printBuyingTickets(List<Lotto> lottoList) {
-        System.out.println(lottoList.size() + TICKETS_OUTPUT_PROMPT);
+        System.out.println("\n" + lottoList.size() + TICKETS_OUTPUT_PROMPT);
         for (Lotto lotto : lottoList) {
             System.out.println(lotto.getNumbers());
         }
     }
 
     public void printAskWinningLotto() {
-        System.out.println(WINNING_LOTTO_INPUT_PROMPT);
+        System.out.println("\n" + WINNING_LOTTO_INPUT_PROMPT);
     }
 
     public void printAskBonus() {
-        System.out.println(BONUS_INPUT_PROMPT);
+        System.out.println("\n" + BONUS_INPUT_PROMPT);
     }
 
     public void printSummary(Map<Rank, Long> result, double yield) {
-        System.out.println(SUMMARY_PROMPT);
+        System.out.println("\n" + SUMMARY_PROMPT);
+        printRankStatistics(result);
+        printYield(yield);
+    }
+
+    private void printRankStatistics(Map<Rank, Long> result) {
         for (Rank rank : Rank.values()) {
-            if (rank.getPrice() > 0) {
-                System.out.printf("%d개 일치 (%s원)%s - %d개%n",
-                        rank.getMatchCount(),
-                        String.format("%,d", rank.getPrice()),
-                        rank.hasBonus() ? ", 보너스 볼 일치" : "",
-                        result.getOrDefault(rank, 0L));
+            if (rank.getMatchCount() < 3) {
+                continue;
             }
+            printRankLine(rank, result.getOrDefault(rank, 0L));
         }
+    }
+
+    private void printRankLine(Rank rank, long count) {
+        if (rank.hasBonus()) {
+            printSecondRank(rank, count);
+            return;
+        }
+        printNormalRank(rank, count);
+    }
+
+    private void printSecondRank(Rank rank, long count) {
+        System.out.printf("%d개 일치, 보너스 볼 일치 (%s원) - %d개%n",
+                rank.getMatchCount(),
+                String.format("%,d", rank.getPrice()),
+                count);
+    }
+
+    private void printNormalRank(Rank rank, long count) {
+        System.out.printf("%d개 일치 (%s원) - %d개%n",
+                rank.getMatchCount(),
+                String.format("%,d", rank.getPrice()),
+                count);
+    }
+
+    private void printYield(double yield) {
         System.out.printf("총 수익률은 %.1f%%입니다.%n", yield);
     }
 

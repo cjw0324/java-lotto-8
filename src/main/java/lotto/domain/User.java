@@ -19,7 +19,7 @@ public class User {
     }
 
     public void buy(LottoSeller seller) {
-        lottoList.addAll(seller.selling(purchaseAmount));
+        lottoList.addAll(seller.selling(this.purchaseAmount));
     }
 
     public void addLotto(Lotto lotto) {
@@ -31,7 +31,6 @@ public class User {
     }
 
     public void setPurchaseAmount(int amount) {
-
         this.purchaseAmount = amount;
     }
 
