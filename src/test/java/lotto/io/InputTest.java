@@ -32,7 +32,7 @@ class InputTest extends NsTest {
 
         //then
         assertThatThrownBy(input::readPrice)
-                .isInstanceOf(IllegalArgumentException.class)
+                .isExactlyInstanceOf(IllegalArgumentException.class)
                 .hasMessageStartingWith(ErrorMessage.NOT_VALID_MONEY.print());
     }
 
@@ -59,7 +59,7 @@ class InputTest extends NsTest {
 
         // then
         assertThatThrownBy(input::readBonus)
-                .isInstanceOf(IllegalArgumentException.class)
+                .isExactlyInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.NOT_VALID_LOTTO_OUT_OF_RANGE.print());
     }
 

@@ -36,6 +36,4 @@ public class Input {
         int bonus = inputParser.parseNum(rawBonus);
         return validate.availableLottoNum(bonus);
     }
-
-
 }

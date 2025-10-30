@@ -1,8 +1,6 @@
 package lotto.domain;
 
 import static lotto.exception.ErrorMessage.NOT_VALID_LOTTO_CONTAIN_BONUS;
-
-import java.util.List;
 import lotto.Lotto;
 
 public class WinningLotto{
@@ -14,7 +12,6 @@ public class WinningLotto{
         validate(winningLotto, bonus);
         this.bonus = bonus;
     }
-
 
     private void validate(Lotto winningNumbers, int bonus) {
         if (winningNumbers.getNumbers().contains(bonus)) {
