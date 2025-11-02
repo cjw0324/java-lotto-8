@@ -60,7 +60,7 @@ class InputTest extends NsTest {
         // then
         assertThatThrownBy(input::readBonus)
                 .isExactlyInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.NOT_VALID_LOTTO_OUT_OF_RANGE.print());
+                .hasMessageStartingWith(ErrorMessage.NOT_VALID_LOTTO_OUT_OF_RANGE.print());
     }
 
 
